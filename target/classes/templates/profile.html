@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="styles.css" />
+    <meta charset="UTF-8">
+    <title>Update Profile</title>
+</head>
+<body>
+  <form action="/profile" method="POST">
+    <h2>You can update your profile here</h2>
+
+    <div>
+      <label for="name">Name:</label>
+      <input name="name" id="name" th:value="${user.name}" maxlength="64">
+    </div>
+    <div>
+      <label for="surname">Surname:</label>
+      <input name="surname" id="surname" th:value="${user.surname}" maxlength="64">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input name="email" id="email" th:value="${user.email}" maxlength="128" readonly>
+    </div>
+    <div>
+      <label for="userGroupId">Group:</label>
+      <select name="userGroupId" id="userGroupId" th:value="${user.userGroupId}" th:field="*{user.userGroupId}">
+        <option value=0>Öğretmen</option>
+        <option value=1>Öğrenci</option>
+        <option value=2>Mühendis</option>
+        <option value=3>Yazılımcı</option>
+        <option value=4>Doktor</option>
+      </select>
+    </div>
+    <div>
+      <label for="countryId">Country:</label>
+      <select name="countryId" id="countryId" th:value="${user.countryId}" th:field="*{user.countryId}">
+        <option value=0>Türkiye</option>
+        <option value=1>Bosna Hersek</option>
+        <option value=2>Japonya</option>
+        <option value=3>Hırvatistan</option>
+        <option value=4>İsveç</option>
+        <option value=5>Danimarka</option>
+        <option value=6>Kanada</option>
+        <option value=7>İtalya</option>
+      </select>
+    </div>
+    <div>
+      <label for="phone">Phone:</label>
+      <input name="phone" id="phone" th:value="${user.phone}" maxlength="15">
+    </div>
+    <div>
+      <label for="title">Title:</label>
+      <input name="title" id="title" th:value="${user.title}" maxlength="255">
+    </div>
+    <div>
+      <label for="corporate">Corporate:</label>
+      <input name="corporate" id="corporate" th:value="${user.corporate}" maxlength="255">
+    </div>
+    <div>
+      <label for="usageReason">Usage Reason:</label>
+      <input name="usageReason" id="usageReason" th:value="${user.usageReason}" maxlength="255">
+    </div>
+    <div>
+      <button>Update</button>
+    </div>
+  </form>
+</body>
+</html>

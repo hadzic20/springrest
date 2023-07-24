@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+  <link rel="stylesheet" type="text/css" th:href="styles.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Registration and Login System</title>
+</head>
+<body>
+  <form action="/main" method="POST">
+    <h2>Let's log in!</h2>
+
+    <div>
+      <label for="email">Email:</label>
+      <input name="email" id="email" value="" maxlength="64">
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input name="password" id="password" value="" maxlength="64" type="password">
+    </div>
+    <div>
+      <button>Log in</button>
+    </div>
+  </form>
+
+  <form action="/register" method="GET">
+    <button>Register</button>
+  </form>
+  <form action="/user" method="GET">
+    <button>List customers</button>
+  </form>
+  <form action="/forgot" method="GET">
+    <button>Şifremi unuttum</button>
+  </form>
+  <div th:text="${success}"></div>
+</body>
+</html>

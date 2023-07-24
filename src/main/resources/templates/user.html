@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+      table, th, td {
+        border: 1px solid #ee00ff;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 15px;
+        text-align: center;
+      }
+      h2, th {
+        color: #ff7dff;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" th:href="styles.css" />
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+  <div class="userList" th:unless="${#lists.isEmpty(allUsers)}">
+
+    <h2>List of Users</h2>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>User Group</th>
+        <th>Country</th>
+        <th>Phone</th>
+        <th>Corporate</th>
+        <th>Title</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="user : ${allUsers}">
+        <td th:unless="${user.active == false}" th:text="${user.name}"></td>
+        <td th:unless="${user.active == false}" th:text="${user.surname}"></td>
+        <td th:unless="${user.active == false}" th:text="${user.email}"></td>
+        <td th:unless="${user.active == false}" th:text="${user.userGroupId}"></td>
+        <td th:unless="${user.active == false}" th:text="${user.countryId}"></td>
+        <td th:unless="${user.active == false}" th:text="${user.phone}"></td>
+        <td th:unless="${user.active == false}" th:text="${user.corporate}"></td>
+        <td th:unless="${user.active == false}" th:text="${user.title}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <form action="/main" method="GET">
+      <button>Return to Main Page</button>
+    </form>
+  </div>
+</body>
+</html>
